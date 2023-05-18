@@ -1,0 +1,18 @@
+.appBar {
+  background-color: "#fff";
+  .toolbar {
+    justify-content: space-between;
+  }
+  .profileLink {
+    text-decoration: none;
+    color: white;
+    font-weight: 700;
+  }
+  .logout {
+    cursor: pointer;
+  }
+  .link {
+    text-decoration: none;
+    color: white;
+  }
+}

@@ -1,0 +1,17 @@
+.card {
+  max-width: "100%";
+  .link {
+    text-decoration: none;
+  }
+}
+
+.cardActions {
+  display: "flex";
+  margin: "0 10px";
+  justify-content: "space-between";
+}
+
+.author {
+  display: "flex";
+  text-align: left;
+}

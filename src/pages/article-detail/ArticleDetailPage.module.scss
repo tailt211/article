@@ -1,0 +1,16 @@
+.container {
+  padding-top: 20px;
+  .linkContainer {
+    justify-content: flex-end;
+    @media (max-width: 425px) {
+      justify-content: center;
+    }
+  }
+  .contentContainer {
+    .dateContainer {
+      @media (max-width: 425px) {
+        flex-direction: column;
+      }
+    }
+  }
+}

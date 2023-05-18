@@ -1,0 +1,7 @@
+.contentContainer {
+  .dateContainer {
+    @media (max-width: 425px) {
+      flex-direction: column;
+    }
+  }
+}

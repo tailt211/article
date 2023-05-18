@@ -1,0 +1,9 @@
+.container {
+  padding-top: 20px;
+  .linkContainer {
+    text-align: right;
+    @media (max-width: 425px) {
+      text-align: center;
+    }
+  }
+}
