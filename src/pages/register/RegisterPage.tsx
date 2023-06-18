@@ -18,6 +18,7 @@ import { useNavigate } from "react-router-dom";
 import { setLocalToken, setLocalUserInfo } from "../../utils/storage";
 import { Link } from "react-router-dom";
 import { PATHS } from "../../router/paths";
+import { fetchProfileThunk } from "../../store/profile/profile.thunk";
 
 interface FormInputs {
   username: string;
@@ -54,7 +55,8 @@ const RegisterPage = () => {
       });
       navigate("/", { replace: true });
     }
-  }, [token, loading, myAccount, navigate]);
+    dispatch(fetchProfileThunk());
+  }, [token, loading, myAccount, navigate, dispatch]);
 
   return (
     <Box mt={12}>

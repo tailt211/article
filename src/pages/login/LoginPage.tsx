@@ -18,6 +18,8 @@ import { useNavigate } from "react-router-dom";
 import { setLocalToken, setLocalUserInfo } from "../../utils/storage";
 import { Link } from "react-router-dom";
 import { PATHS } from "../../router/paths";
+import { fetchProfileThunk } from "../../store/profile/profile.thunk";
+import { fetchAllUserThunk } from "../../store/users/users.thunk";
 
 interface FormInputs {
   email: string;
@@ -46,8 +48,10 @@ const LoginPage = () => {
         image: myAccount?.image,
       });
       navigate("/", { replace: true });
+      dispatch(fetchProfileThunk());
+      dispatch(fetchAllUserThunk());
     }
-  }, [token, loading, myAccount, navigate]);
+  }, [token, loading, myAccount, navigate, dispatch]);
 
   return (
     <Box mt={12}>

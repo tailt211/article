@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Avatar,
   Button,
@@ -12,7 +12,10 @@ import {
 import { AppDispatch, RootState } from "../../store";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { deleteUserThunk } from "../../store/users/users.thunk";
+import {
+  deleteUserThunk,
+  fetchAllUserThunk,
+} from "../../store/users/users.thunk";
 import { removeUser } from "../../store/users/users.slice";
 import Loader from "../../components/loader/Loader";
 import NotFound from "../../components/notFound/NotFound";
@@ -21,6 +24,10 @@ const UsersPage = () => {
   const dispatch: AppDispatch = useDispatch();
   const { userList, loading } = useSelector((state: RootState) => state.user);
   const { myProfile } = useSelector((state: RootState) => state.profile);
+
+  useEffect(() => {
+    dispatch(fetchAllUserThunk());
+  }, [dispatch]);
 
   const handleRemoveUser = (email: string, id: number) => {
     dispatch(deleteUserThunk({ email: email }));

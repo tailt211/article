@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Avatar,
   Box,
@@ -11,7 +11,10 @@ import { AppDispatch, RootState } from "../../store";
 import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
-import { updateProfileThunk } from "../../store/profile/profile.thunk";
+import {
+  fetchProfileThunk,
+  updateProfileThunk,
+} from "../../store/profile/profile.thunk";
 import { setLocalUserInfo } from "../../utils/storage";
 import { updateMyProfile } from "../../store/users/users.slice";
 import { UserDTO } from "../../model/user/dto/user.dto";
@@ -36,6 +39,10 @@ const ProfilePage = () => {
       bio: myProfile?.bio,
     },
   });
+
+  useEffect(() => {
+    dispatch(fetchProfileThunk());
+  }, [dispatch]);
 
   const onSubmit = async (data: FormInputs) => {
     if (myProfile && data) {
